@@ -1,5 +1,7 @@
 # Hadoop for Efficient Data Processing
 
+🐘 Dockerized Hadoop cluster for local development and testing with HDFS and YARN
+
 <br/>
 
 ### Hadoop Docker (docker/)
@@ -11,13 +13,43 @@
 To deploy an example HDFS cluster, run:
 
 ```bash
-  docker-compose up
+make up
 ```
 
 Run example wordcount job:
 
 ```bash
-  make wordcount
+make wordcount
+```
+
+Stop the cluster:
+
+```bash
+make down
+```
+
+View logs:
+
+```bash
+make logs
+```
+
+Clean up everything (including volumes):
+
+```bash
+make clean
+```
+
+**Available Commands**
+
+```bash
+make up          # Start Hadoop cluster
+make down        # Stop Hadoop cluster
+make restart     # Restart all services
+make logs        # View logs from all services
+make wordcount   # Run example MapReduce job
+make build       # Build custom Docker images
+make clean       # Remove all containers and volumes
 ```
 
 Or deploy in swarm:
@@ -30,17 +62,27 @@ docker stack deploy -c docker-compose-v3.yml hadoop
 
 Run `docker network inspect` on the network (e.g. `dockerhadoop_default`) to find the IP the hadoop interfaces are published on. Access these interfaces with the following URLs:
 
--   Namenode: http://<dockerhadoop_IP_address>:9870/dfshealth.html#tab-overview
--   History server: http://<dockerhadoop_IP_address>:8188/applicationhistory
--   Datanode: http://<dockerhadoop_IP_address>:9864/
--   Nodemanager: http://<dockerhadoop_IP_address>:8042/node
--   Resource manager: http://<dockerhadoop_IP_address>:8088/
+-   Namenode: http://localhost:9870/dfshealth.html#tab-overview
+-   History server: http://localhost:8188/applicationhistory
+-   Datanode: http://localhost:9864/
+-   Nodemanager: http://localhost:8042/node
+-   Resource manager: http://localhost:8088/
+
+**Configuration**
+
+- Hadoop settings: `docker/hadoop.env`
+- Docker Compose: `docker/docker-compose.yml`
+- Port mappings: Modify ports in `docker/docker-compose.yml` if needed
+
+**Troubleshooting**
+
+If you encounter port conflicts, you can modify the ports in `docker/docker-compose.yml`.
 
 <br/>
 
 **Configure Environment Variables**
 
-The configuration parameters can be specified in the hadoop.env file or as environmental variables for specific services (e.g. namenode, datanode etc.):
+The configuration parameters can be specified in the `docker/hadoop.env` file or as environmental variables for specific services (e.g. namenode, datanode etc.):
 
 ```
   CORE_CONF_fs_defaultFS=hdfs://namenode:8020
