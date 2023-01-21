@@ -1,4 +1,4 @@
-# Hadoop for Efficient Data Processing
+# Docker Hadoop Cluster
 
 🐘 Dockerized Hadoop cluster for local development and testing with HDFS and YARN
 
@@ -6,7 +6,7 @@
 
 ### Hadoop Docker (docker/)
 
-> Code extracted from the last commit of the repository "https://github.com/big-data-europe/docker-hadoop" on Jun 29, 2020.
+> Code extracted from the last commit of the repository "<https://github.com/big-data-europe/docker-hadoop>" on Jun 29, 2020.
 
 **Quick Start**
 
@@ -62,11 +62,11 @@ docker stack deploy -c docker-compose-v3.yml hadoop
 
 Run `docker network inspect` on the network (e.g. `dockerhadoop_default`) to find the IP the hadoop interfaces are published on. Access these interfaces with the following URLs:
 
--   Namenode: http://localhost:9870/dfshealth.html#tab-overview
--   History server: http://localhost:8188/applicationhistory
--   Datanode: http://localhost:9864/
--   Nodemanager: http://localhost:8042/node
--   Resource manager: http://localhost:8088/
+- Namenode: <http://localhost:9870/dfshealth.html#tab-overview>
+- History server: <http://localhost:8188/applicationhistory>
+- Datanode: <http://localhost:9864/>
+- Nodemanager: <http://localhost:8042/node>
+- Resource manager: <http://localhost:8088/>
 
 **Configuration**
 
@@ -102,12 +102,12 @@ To define dash inside a configuration parameter, use triple underscore, such as 
 
 The available configurations are:
 
--   /etc/hadoop/core-site.xml CORE_CONF
--   /etc/hadoop/hdfs-site.xml HDFS_CONF
--   /etc/hadoop/yarn-site.xml YARN_CONF
--   /etc/hadoop/httpfs-site.xml HTTPFS_CONF
--   /etc/hadoop/kms-site.xml KMS_CONF
--   /etc/hadoop/mapred-site.xml MAPRED_CONF
+- /etc/hadoop/core-site.xml CORE_CONF
+- /etc/hadoop/hdfs-site.xml HDFS_CONF
+- /etc/hadoop/yarn-site.xml YARN_CONF
+- /etc/hadoop/httpfs-site.xml HTTPFS_CONF
+- /etc/hadoop/kms-site.xml KMS_CONF
+- /etc/hadoop/mapred-site.xml MAPRED_CONF
 
 If you need to extend some other configuration file, refer to base/entrypoint.sh bash script.
 
@@ -117,6 +117,6 @@ If you need to extend some other configuration file, refer to base/entrypoint.sh
 
 ### Reference
 
--   [Big Data Europe](https://www.big-data-europe.eu/) : Integrating Big Data, software & communicaties for addressing Europe's societal challenges
-    -   GitHub : https://github.com/big-data-europe
-    -   Docker Hub : https://hub.docker.com/u/bde2020
+- [Big Data Europe](https://www.big-data-europe.eu/) : Integrating Big Data, software & communicaties for addressing Europe's societal challenges
+    - GitHub : <https://github.com/big-data-europe>
+    - Docker Hub : <https://hub.docker.com/u/bde2020>
